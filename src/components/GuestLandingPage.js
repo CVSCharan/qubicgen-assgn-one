@@ -13,15 +13,15 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { useNavigation } from "@react-navigation/native";
 import attendanceImg from "../assets/images/attendance.png";
 import homeWorkImg from "../assets/images/homework.png";
 import resultImg from "../assets/images/exam.png";
 import examRoutineImg from "../assets/images/exam-routine.png";
 import solutionImg from "../assets/images/solution.png";
 import noticeandeventsImg from "../assets/images/notices-events.png";
+import addAccountImg from "../assets/images/add-contact.png";
 
-export default function StudentLandingPage() {
+export default function GuestLandingPage() {
   const listArr = [
     {
       id: "1",
@@ -50,33 +50,23 @@ export default function StudentLandingPage() {
     },
     {
       id: "6",
-      name: "Quiz",
+      name: "Notice & Events",
       img_src: noticeandeventsImg,
     },
+    {
+      id: "7",
+      name: "Add Account",
+      img_src: addAccountImg,
+    },
   ];
-
-  const navigation = useNavigation();
-
-  const handleClick = (name) => {
-    if (name === "Homework") {
-      navigation.navigate("SHomeWorkScreen");
-    } else if (name === "Result") {
-      navigation.navigate("SResultScreen");
-    } else if (name === "Quiz") {
-      navigation.navigate("SQuizScreen");
-    }
-  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate("StudentProfile")}
-          style={styles.logoDiv}
-        >
+        <View style={styles.logoDiv}>
           <Image source={logo} style={styles.iconImg} />
-        </TouchableOpacity>
+        </View>
         <View style={styles.firstDiv}>
           <View style={styles.firstDivSubDiv}>
             <Text style={styles.textFive}>Welcome Message</Text>
@@ -91,10 +81,7 @@ export default function StudentLandingPage() {
         <View style={styles.secondDiv}>
           {listArr.map((item, itemIndex) => (
             <View style={styles.secondDivSubDiv} key={itemIndex}>
-              <TouchableOpacity
-                onPress={() => handleClick(item.name)}
-                style={styles.imgDiv}
-              >
+              <TouchableOpacity style={styles.imgDiv}>
                 <Image source={item.img_src} style={styles.img} />
               </TouchableOpacity>
               <Text style={styles.textTwo}>{item.name}</Text>

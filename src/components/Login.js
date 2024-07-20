@@ -7,18 +7,34 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import logo from "../assets/images/assgn-logo.png";
 import userIcon from "../assets/images/username-icon.png";
 import passwordIcon from "../assets/images/password-icon.png";
+import { useNavigation } from "@react-navigation/native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-export default function App() {
+export default function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
+
+  const handleBtnClick = () => {
+    if (username === "teacher" && password === "qubicgen") {
+      navigation.navigate("TeacherScreen");
+    } else {
+      Alert.alert(
+        "Invalid Credentials",
+        "Please check your username and password.",
+        [{ text: "OK" }]
+      );
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -52,7 +68,7 @@ export default function App() {
             <Image source={passwordIcon} style={styles.img} />
           </View>
         </View>
-        <TouchableOpacity style={styles.loginBtn}>
+        <TouchableOpacity onPress={handleBtnClick} style={styles.loginBtn}>
           <Text style={styles.textThree}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.textFour}>Forgot Password ?</Text>

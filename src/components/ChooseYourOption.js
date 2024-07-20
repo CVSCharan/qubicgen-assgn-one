@@ -41,7 +41,7 @@ export default function ChooseYourOption() {
           <View style={styles.divOneSubDiv}>
             <TouchableOpacity
               style={styles.imgDiv}
-              onPress={() => navigation.navigate("TeacherScreen")}
+              onPress={() => navigation.navigate("LoginScreen")}
             >
               <Image source={teacherImg} style={styles.img} />
             </TouchableOpacity>
@@ -50,7 +50,10 @@ export default function ChooseYourOption() {
         </View>
         <View style={styles.divOne}>
           <View style={styles.divOneSubDiv}>
-            <TouchableOpacity style={styles.imgDiv}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("TeacherScreen")}
+              style={styles.imgDiv}
+            >
               <Image source={guestImg} style={styles.img} />
             </TouchableOpacity>
             <Text style={styles.textTwo}>Guest</Text>

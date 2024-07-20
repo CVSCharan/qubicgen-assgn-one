@@ -4,8 +4,18 @@
     "slug": "assgn-one",
     "version": "1.0.0",
     "plugins": [
-      ["react-native-bootsplash", { "assetsDir": "assets/bootsplash" }]
-    ]
+      [
+        "react-native-bootsplash",
+        {
+          "assetsDir": "assets/bootsplash"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a8481cee-0435-42f0-ad74-c6a0b6e0a56a"
+      }
+    }
   },
   "name": "assgn-one"
 }
